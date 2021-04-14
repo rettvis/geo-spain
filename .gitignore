@@ -140,3 +140,8 @@ Desktop.ini
 ######################
 .eslintcache
 /.idea/
+
+######################
+# Local Configuration
+######################
+config/application.properties

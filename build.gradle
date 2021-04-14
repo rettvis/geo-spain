@@ -18,6 +18,21 @@ repositories {
 	mavenCentral()
 }
 
+def Properties localBootRunProperties() {
+
+	Properties properties = new Properties();
+	properties.load(new FileInputStream(file(project.projectDir).absolutePath + "/config/application.properties"))
+
+	return properties;
+
+}
+
+bootRun{
+	doFirst{
+		bootRun.systemProperties = localBootRunProperties()
+	}
+}
+
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
