@@ -9,6 +9,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.time.LocalDateTime;
 
 /**
  * @author: guillem.casas
@@ -31,5 +32,11 @@ public class ComunidadEntity {
 
     @Column(name = "LANG")
     private int language;
+
+    @Column(name ="CREATED_DATE")
+    private LocalDateTime createdDate;
+
+    @Column(name ="UPDATED_DATE")
+    private LocalDateTime updatedDate;
 
 }

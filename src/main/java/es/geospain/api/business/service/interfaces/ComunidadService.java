@@ -12,6 +12,6 @@ import java.util.Optional;
  **/
 public interface ComunidadService {
 
-    List<Comunidad> getAllComunidades(Optional<SupportedLanguages> language);
+    List<Comunidad> getAllComunidades(SupportedLanguages language);
 
 }

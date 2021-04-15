@@ -6,13 +6,12 @@ import es.geospain.api.business.mapper.ComunidadMapper;
 import es.geospain.api.business.service.interfaces.ComunidadService;
 import es.geospain.api.data.entity.ComunidadEntity;
 import es.geospain.api.data.repository.ComunidadRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import static es.geospain.api.data.specification.ComunidadSpecification.inLanguage;
 
@@ -21,16 +20,14 @@ import static es.geospain.api.data.specification.ComunidadSpecification.inLangua
  * @version: 15/04/2021
 **/
 @Service
+@AllArgsConstructor
 public class ComunidadServiceImpl implements ComunidadService {
 
-    @Autowired
-    ComunidadRepository comunidadRepository;
-
-    @Autowired
-    ComunidadMapper comunidadMapper;
+    private final ComunidadMapper comunidadMapper;
+    private final ComunidadRepository comunidadRepository;
 
     @Override
-    public List<Comunidad> getAllComunidades(Optional<SupportedLanguages> language) {
+    public List<Comunidad> getAllComunidades(SupportedLanguages language) {
 
         List<Comunidad> comunidades = new ArrayList<>();
         Specification<ComunidadEntity> specification = inLanguage(language);

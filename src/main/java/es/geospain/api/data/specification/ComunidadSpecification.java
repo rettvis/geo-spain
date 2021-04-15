@@ -7,7 +7,7 @@ import org.springframework.data.jpa.domain.Specification;
 import javax.persistence.criteria.Predicate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
+import java.util.Objects;
 
 /**
  * @author: guillem.casas
@@ -15,15 +15,14 @@ import java.util.Optional;
 **/
 public class ComunidadSpecification {
 
-    public static Specification<ComunidadEntity> inLanguage(Optional<SupportedLanguages> supportedLanguage){
+    public static Specification<ComunidadEntity> inLanguage(SupportedLanguages supportedLanguage){
 
         return (Specification<ComunidadEntity>) (root, query, criteriaBuilder) -> {
 
             List<Predicate> predicates = new ArrayList<>();
 
-            if(supportedLanguage.isPresent()){
-                SupportedLanguages language = supportedLanguage.get();
-                predicates.add(criteriaBuilder.equal(root.<String>get("language"), language.getValue()));
+            if(Objects.nonNull(supportedLanguage)){
+                predicates.add(criteriaBuilder.equal(root.<String>get("language"), supportedLanguage.getValue()));
             } else {
                 predicates.add(criteriaBuilder.equal(root.<String>get("language"), 2));
             }

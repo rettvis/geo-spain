@@ -14,6 +14,7 @@ import java.util.List;
 @Builder
 public class GeoSpainResponse {
 
+    private String updated;
     private int size;
     private List<Comunidad> data;
 
