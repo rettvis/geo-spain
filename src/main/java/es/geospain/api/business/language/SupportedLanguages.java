@@ -6,8 +6,8 @@ package es.geospain.api.business.language;
  **/
 public enum SupportedLanguages {
 
-    cat(1),
-    esp(2);
+    CAT(1),
+    ESP(2);
 
     private int value;
 

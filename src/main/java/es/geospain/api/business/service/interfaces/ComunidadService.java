@@ -4,7 +4,6 @@ import es.geospain.api.business.domain.Comunidad;
 import es.geospain.api.business.language.SupportedLanguages;
 
 import java.util.List;
-import java.util.Optional;
 
 /**
  * @author: guillem.casas

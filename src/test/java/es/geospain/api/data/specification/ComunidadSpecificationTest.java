@@ -23,7 +23,7 @@ public class ComunidadSpecificationTest {
 
         assertAll(
                 () -> assertDoesNotThrow(()->{
-                    specification.set(inLanguage(SupportedLanguages.cat));
+                    specification.set(inLanguage(SupportedLanguages.CAT));
                 }),
                 () -> assertNotNull(specification)
         );
@@ -37,7 +37,7 @@ public class ComunidadSpecificationTest {
 
         assertAll(
                 () -> assertDoesNotThrow(()->{
-                    specification.set(inLanguage(SupportedLanguages.esp));
+                    specification.set(inLanguage(SupportedLanguages.ESP));
                 }),
                 () -> assertNotNull(specification)
         );

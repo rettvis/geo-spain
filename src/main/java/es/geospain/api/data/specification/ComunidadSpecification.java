@@ -15,16 +15,20 @@ import java.util.Objects;
 **/
 public class ComunidadSpecification {
 
+    private ComunidadSpecification() {
+        throw new IllegalStateException("Utility class");
+    }
+
     public static Specification<ComunidadEntity> inLanguage(SupportedLanguages supportedLanguage){
 
-        return (Specification<ComunidadEntity>) (root, query, criteriaBuilder) -> {
+        return (root, query, criteriaBuilder) -> {
 
             List<Predicate> predicates = new ArrayList<>();
 
             if(Objects.nonNull(supportedLanguage)){
                 predicates.add(criteriaBuilder.equal(root.<String>get("language"), supportedLanguage.getValue()));
             } else {
-                predicates.add(criteriaBuilder.equal(root.<String>get("language"), 2));
+                predicates.add(criteriaBuilder.equal(root.<String>get("language"), SupportedLanguages.ESP.getValue()));
             }
 
             return criteriaBuilder.and(predicates.toArray(new Predicate[0]));

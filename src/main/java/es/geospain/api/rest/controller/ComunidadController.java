@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -32,7 +31,7 @@ public class ComunidadController {
     @GetMapping("/comunidades")
     public ResponseEntity<GeoSpainResponse> getAllComunidades(@RequestParam("lang") Optional<SupportedLanguages> supportedLanguages){
 
-        SupportedLanguages language = Objects.nonNull(supportedLanguages) ? supportedLanguages.get() : null;
+        SupportedLanguages language = supportedLanguages.orElse(SupportedLanguages.ESP);
 
         List<Comunidad> comunidades = comunidadService.getAllComunidades(language);
         LocalDateTime updatedDate = !CollectionUtils.isEmpty(comunidades) ? comunidades.get(0).getUpdatedDate() : LocalDateTime.now();

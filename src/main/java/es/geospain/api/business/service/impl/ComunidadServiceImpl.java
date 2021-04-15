@@ -34,9 +34,9 @@ public class ComunidadServiceImpl implements ComunidadService {
 
         Iterable<ComunidadEntity> comunidadEntities = comunidadRepository.findAll(specification);
 
-        comunidadEntities.forEach(comunidadEntity -> {
-            comunidades.add(comunidadMapper.comunidadEntityToComunidad(comunidadEntity));
-        });
+        comunidadEntities.forEach(
+                comunidadEntity -> comunidades.add(comunidadMapper.comunidadEntityToComunidad(comunidadEntity))
+        );
 
         return comunidades;
 

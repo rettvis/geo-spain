@@ -27,12 +27,12 @@ public class ComunidadRepositoryTest {
     @Test
     void findAll_WhenLanguageIsCat_ThenReturnComunidadesInCatalan() {
 
-        Specification<ComunidadEntity> specification = ComunidadSpecification.inLanguage(SupportedLanguages.cat);
+        Specification<ComunidadEntity> specification = ComunidadSpecification.inLanguage(SupportedLanguages.CAT);
         List<ComunidadEntity> comunidades = comunidadRepository.findAll(specification);
 
         assertAll(
                 () -> assertNotNull(comunidades),
-                () -> assertEquals(comunidades.get(0).getLanguage(), SupportedLanguages.cat.getValue()),
+                () -> assertEquals(comunidades.get(0).getLanguage(), SupportedLanguages.CAT.getValue()),
                 () -> assertEquals(4, comunidades.size())
         );
 
@@ -41,12 +41,12 @@ public class ComunidadRepositoryTest {
     @Test
     void findAll_WhenLanguageIsEsp_ThenReturnComunidadesInSpanish() {
 
-        Specification<ComunidadEntity> specification = ComunidadSpecification.inLanguage(SupportedLanguages.esp);
+        Specification<ComunidadEntity> specification = ComunidadSpecification.inLanguage(SupportedLanguages.ESP);
         List<ComunidadEntity> comunidades = comunidadRepository.findAll(specification);
 
         assertAll(
                 () -> assertNotNull(comunidades),
-                () -> assertEquals(comunidades.get(0).getLanguage(), SupportedLanguages.esp.getValue()),
+                () -> assertEquals(comunidades.get(0).getLanguage(), SupportedLanguages.ESP.getValue()),
                 () -> assertEquals(5, comunidades.size())
         );
 
@@ -60,7 +60,7 @@ public class ComunidadRepositoryTest {
 
         assertAll(
                 () -> assertNotNull(comunidades),
-                () -> assertEquals(comunidades.get(0).getLanguage(), SupportedLanguages.esp.getValue()),
+                () -> assertEquals(comunidades.get(0).getLanguage(), SupportedLanguages.ESP.getValue()),
                 () -> assertEquals(5, comunidades.size())
         );
 
