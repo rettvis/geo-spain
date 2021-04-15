@@ -1,0 +1,42 @@
+// DEPLOY
+task deploy {
+
+    doLast {
+
+        if(project.hasProperty("host")){
+
+            def hostprops = project.getProperty("host")
+            def hostconfg = hostprops.split(';')
+
+            println "[INFO] - Loading host configuration ${hostconfg}"
+
+            remotes {
+                host01 {
+                    host = hostconfg[0]
+                    user = hostconfg[1]
+                    identity = file("${hostconfg[2]}")
+                    passphrase = hostconfg[3]
+                }
+            }
+
+            println "[INFO] - Deploying ..."
+
+            ssh.run {
+                session(remotes.host01) {
+                    execute 'sudo ./stop-geo-spain.sh'
+                    put from: "${buildDir}"+'/libs/geospain-api-1.0.jar', into: './geo-spain'
+                    execute 'sudo ./start-geo-spain.sh'
+                }
+            }
+
+            println "[INFO] - Deployed Successfuly"
+
+        } else {
+            println "[ERROR] - Host not defined."
+        }
+
+    }
+
+    dependsOn('bootJar')
+
+}
