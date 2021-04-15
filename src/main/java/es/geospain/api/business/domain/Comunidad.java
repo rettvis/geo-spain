@@ -12,6 +12,6 @@ import lombok.Data;
 public class Comunidad {
 
     private Long id;
-    private String comunidad;
+    private String name;
 
 }
