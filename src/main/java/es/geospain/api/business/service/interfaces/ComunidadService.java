@@ -1,8 +1,10 @@
 package es.geospain.api.business.service.interfaces;
 
 import es.geospain.api.business.domain.Comunidad;
+import es.geospain.api.business.language.SupportedLanguages;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * @author: guillem.casas
@@ -10,6 +12,6 @@ import java.util.List;
  **/
 public interface ComunidadService {
 
-    List<Comunidad> getAllComunidades();
+    List<Comunidad> getAllComunidades(Optional<SupportedLanguages> language);
 
 }

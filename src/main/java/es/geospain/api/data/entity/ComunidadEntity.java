@@ -27,4 +27,7 @@ public class ComunidadEntity {
     @Column(name = "NAME")
     private String name;
 
+    @Column(name = "LANGUAGE")
+    private int language;
+
 }

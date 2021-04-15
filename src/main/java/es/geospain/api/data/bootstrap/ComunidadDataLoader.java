@@ -47,8 +47,8 @@ public class ComunidadDataLoader implements CommandLineRunner{
 
         List<ComunidadEntity> comunidadEntities = new ArrayList<>();
 
-        comunidadEntities.add(ComunidadEntity.builder().id(1L).name("Cataluña").build());
-        comunidadEntities.add(ComunidadEntity.builder().id(2L).name("País Vasco").build());
+        comunidadEntities.add(ComunidadEntity.builder().id(1L).name("Cataluña").language(1).build());
+        comunidadEntities.add(ComunidadEntity.builder().id(2L).name("País Vasco").language(2).build());
 
         return comunidadEntities;
 
