@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * @author: guillem.casas
@@ -18,6 +19,7 @@ import javax.persistence.Id;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "GEOSPAIN_COMUNIDADES")
 public class ComunidadEntity {
 
     @Id
@@ -27,7 +29,7 @@ public class ComunidadEntity {
     @Column(name = "NAME")
     private String name;
 
-    @Column(name = "LANGUAGE")
+    @Column(name = "LANG")
     private int language;
 
 }

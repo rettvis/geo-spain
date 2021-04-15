@@ -24,6 +24,8 @@ public class ComunidadSpecification {
             if(supportedLanguage.isPresent()){
                 SupportedLanguages language = supportedLanguage.get();
                 predicates.add(criteriaBuilder.equal(root.<String>get("language"), language.getValue()));
+            } else {
+                predicates.add(criteriaBuilder.equal(root.<String>get("language"), 2));
             }
 
             return criteriaBuilder.and(predicates.toArray(new Predicate[0]));
